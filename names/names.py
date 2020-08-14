@@ -62,10 +62,11 @@ class BSTNode:
             else:
                 # call `contains` on the right child 
                 return self.right.contains(target)
-                
-for i in names_1 and names_2:
-    bst = BSTNode("troy")
+bst = BSTNode("L")                
+for i in names_1:
+    
     bst.insert(i)
+for i in names_2:
     bst.contains(i)
 
 

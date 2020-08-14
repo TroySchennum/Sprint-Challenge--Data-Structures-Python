@@ -1,16 +1,19 @@
 class RingBuffer:
     def __init__(self, capacity):
-        # self.storage = []
-        # self.size = 0
         self.capacity = capacity
-        
         self.data = []
-
+        i= 0
+        self.index = i:i+2
     def append(self, item):
-        
-        self.data.append(item)
-        if len(self.data) == (self.capacity + 1):
-            self.data.pop(0)
+        if len(self.data) == self.capacity:
+            
+            self.data[self.index] = item
+        else:
+            self.data.append(item)
+
+
+
+        # how to change index value in a list
         # increment_address_one = (address + 1) % Length   
         # self.storage.append(item)
         # self.size += 1
