@@ -1,15 +1,29 @@
 class RingBuffer:
     def __init__(self, capacity):
         self.capacity = capacity
-        self.data = []
-        i= 0
-        self.index = i:i+2
+        self.data = [None] * self.capacity
+        self.index = 0
+
     def append(self, item):
-        if len(self.data) == self.capacity:
-            
+        
+        if self.index < self.capacity - 1:
             self.data[self.index] = item
-        else:
-            self.data.append(item)
+            self.index += 1
+        elif self.index == self.capacity - 1:
+            self.data[self.index] = item
+            self.index = 0
+
+                #  if len(self.data) == self.capacity - 1:
+                #     self.index + 1
+        # for i in range(self.capacity):
+        #     self.data.append(item)    
+        # else:
+        #     self.data.append(item)
+        # if self.index == (self.capacity):
+        #     self.index = 0
+        #     self.data[self.index] = item
+        # else:
+        #     self.data.append(item)
 
 
 
@@ -28,3 +42,9 @@ class RingBuffer:
         # return self.storage
         return self.data
     
+
+if __name__ == "__main__":
+    rb = RingBuffer(10)
+    for i in range(11):
+        rb.append(i)
+    print(rb.get())
